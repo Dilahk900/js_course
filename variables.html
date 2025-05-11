@@ -15,8 +15,15 @@
     <button>Scissors</button>
 
     <script>
-        function player_choice(){
-            
+        function player_choice($player_choice){
+            if ($player_choice <= 1 / 3){
+                console.log("choice < 1/3");
+            }
+            else if($player_choice > 1 / 3 && $player_choice <= 2 / 3){
+                console.log("choice between 1/3 and 2/3");
+            } 
+            else
+                console.log("choice > 2/3");
         }
     </script>
 </body>
