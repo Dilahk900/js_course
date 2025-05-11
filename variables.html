@@ -1,31 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Rock Paper Scissors</title>
+  <title>Rock Paper Scissors</title>
 
-    <style>
-            
+  <style>
+          
 
-    </style>
+  </style>
 </head>
 <body>
-    <H1>Rock Paper Scissors</H1>
-    <button onclick="">Rock</button>
-    <button>Paper</button>
-    <button>Scissors</button>
+  <H1>Rock Paper Scissors</H1>
+  <button onclick="_game('rock')">Rock</button>
+  <button onclick="_game('paper')">Paper</button>
+  <button onclick="_game('scissors')">Scissors</button>
+  
+  
+  <script>
+      function _game(player_choice){
+          const $choice = Math.random();
+          let $pc_choice = '';
+          if ($choice <= 1 / 3){ 
 
-    <script>
-        function player_choice($player_choice){
-            if ($player_choice <= 1 / 3){
-                console.log("choice < 1/3");
-            }
-            else if($player_choice > 1 / 3 && $player_choice <= 2 / 3){
-                console.log("choice between 1/3 and 2/3");
-            } 
-            else
-                console.log("choice > 2/3");
-        }
-    </script>
+             console.log("Rock* !");
+             $pc_choice = "rock"
+              
+          }
+          else if($choice > 1 / 3 && $choice <= 2 / 3){
+             console.log("Paper* !");
+             $pc_choice = "paper"
+          } 
+          else{
+            console.log("Scissors* !");
+            $pc_choice = "scissors"
+          }
+          
+          if(player_choice === 'rock' && $pc_choice === 'scissors'){
+            console.log("you win !")
+          }else if(player_choice === 'rock' && $pc_choice === 'paper'){
+             console.log("you lose !");
+          } else if(player_choice === 'paper' && $pc_choice === 'scissors'){
+            console.log("you lose !")
+          }else if(player_choice === 'paper' && $pc_choice === 'rock'){
+             console.log("you win !");
+          } else if(player_choice === 'scissors' && $pc_choice === 'rock'){
+            console.log("you lose !")
+          }else if(player_choice === 'scissors' && $pc_choice === 'paper'){
+             console.log("you win !");
+          } 
+          else{
+            console.log("Tie !");
+
+          }
+          
+          console.log(player_choice);
+      }
+  </script>
 </body>
 
 </html>
