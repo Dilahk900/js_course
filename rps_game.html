@@ -13,23 +13,31 @@
   <button onclick="_game('rock')">Rock</button>
   <button onclick="_game('paper')">Paper</button>
   <button onclick="_game('scissors')">Scissors</button>
-  
+  <p>You chose :</p> <p id="player_choice">--</p>
+  <p>Pc chose :</p><p id="pc_choice">--</p>
+  <H1 id="result">--</H1>
   
   <script>
-      function _game(player_choice){
+      function _cp_choice(){
           const $choice = Math.random();
           let $result;
-          let $pc_choice = '';
+          let $pc_chose = '';
           if ($choice <= 1 / 3){ 
-             $pc_choice = "rock"         
+             $pc_chose = "rock";       
           }
           else if($choice > 1 / 3 && $choice <= 2 / 3){
-             $pc_choice = "paper"
+             $pc_chose = "paper";
           } 
           else{
-            $pc_choice = "scissors"
+            $pc_chose = "scissors";
           }
           
+          return($pc_chose);
+      }
+
+      function _game(player_choice){
+          
+          let $pc_choice = _cp_choice();
           if(player_choice === 'rock' && $pc_choice === 'scissors'){
             $result = "you win !";
           }else if(player_choice === 'rock' && $pc_choice === 'paper'){
@@ -50,6 +58,9 @@
           
           console.log("Computer chose : " + $pc_choice + " and you chose " + player_choice);
           console.log("Result : " + $result);
+          document.getElementById("pc_choice").textContent = $pc_choice;
+          document.getElementById("player_choice").textContent = player_choice;
+          document.getElementById("result").textContent = $result;
       }
   </script>
 </body>
