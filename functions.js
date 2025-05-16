@@ -18,7 +18,32 @@ function _cp_choice(){
       function _game(player_choice){
           
           let $pc_choice = _cp_choice();
-          if(player_choice === 'rock' && $pc_choice === 'scissors'){
+          if(player_choice === 'rock'){
+            if($pc_choice === 'scissors' ){
+              $result = "you win !";
+            } else if($pc_choice === 'paper'){
+              $result = "you lose !";
+            } else  $result = "Tie !";
+          }
+
+          if(player_choice === 'paper'){
+            if($pc_choice === 'scissors' ){
+              $result = "you lose !";
+            } else if($pc_choice === 'rock'){
+              $result = "you win !";
+            } else  $result = "Tie !";
+          }
+
+          if(player_choice === 'scissors'){
+            if($pc_choice === 'rock' ){
+              $result = "you lose !";
+            } else if($pc_choice === 'paper'){
+              $result = "you win !";
+            } else  $result = "Tie !";
+          }
+
+
+          /*if(player_choice === 'rock' && $pc_choice === 'scissors'){
             $result = "you win !";
           }else if(player_choice === 'rock' && $pc_choice === 'paper'){
              $result = "you lose !";
@@ -34,7 +59,7 @@ function _cp_choice(){
           else{
             $result = "Tie !";
 
-          }
+          }*/
           
           console.log("Computer chose : " + $pc_choice + " and you chose " + player_choice);
           console.log("Result : " + $result);
