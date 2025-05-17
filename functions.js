@@ -1,11 +1,16 @@
-          /*let $player_score = 0;
-          let $cp_score = 0;*/
-          const $score = {
+
+
+          let $score = JSON.parse(localStorage.getItem("score")) || {
             wins : 0,
             losses : 0,
             ties : 0
-          }
+          };
           
+          function reset (){
+            localStorage.removeItem('score');
+            location.reload();
+          }
+
           function cp_choice(){
           const $choice = Math.random();
           let $result;
@@ -53,32 +58,14 @@
           }
 
           if($result === 'you lose !'){
-         /*   $cp_score += 1;*/
               $score.losses += 1;
           } else if($result === 'you win !'){
-         /*   $player_score += 1;*/
               $score.wins += 1;
           } else $score.ties += 1;
 
+          localStorage.setItem("score",JSON.stringify($score));
 
-          /*if(player_choice === 'rock' && $pc_choice === 'scissors'){
-            $result = "you win !";
-          }else if(player_choice === 'rock' && $pc_choice === 'paper'){
-             $result = "you lose !";
-          } else if(player_choice === 'paper' && $pc_choice === 'scissors'){
-            $result = "you lose !";
-          }else if(player_choice === 'paper' && $pc_choice === 'rock'){
-             $result = ("you win !");
-          } else if(player_choice === 'scissors' && $pc_choice === 'rock'){
-            $result = "you lose !";
-          }else if(player_choice === 'scissors' && $pc_choice === 'paper'){
-             $result = "you win !";
-          } 
-          else{
-            $result = "Tie !";
 
-          }*/
-          
           console.log("Computer chose : " + $pc_choice + " and you chose " + player_choice);
           console.log("Result : " + $result);
           document.getElementById("pc_choice").textContent = $pc_choice;
