@@ -6,7 +6,7 @@
             ties : 0
           };
           
-          function reset (){
+          function reset (){ /*tesssstete */
             localStorage.removeItem('score');
             location.reload();
           }
