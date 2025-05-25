@@ -6,8 +6,12 @@ let score = JSON.parse(localStorage.getItem("score")) || {
   ties : 0
 };
 
+let result = '';
+let pc_chose = '';
+let player_move = '';
+
 update_score();
-    
+  
 function reset (){ 
       score.wins = 0;
       score.losses = 0;
@@ -15,15 +19,24 @@ function reset (){
       localStorage.removeItem('score');
       update_score();
     }
+
 function update_score(){
-      document.querySelector('.game_result')
-        .innerHTML = `(WINS  ${score.wins}) (LOSSES ${score.losses}) (TIES 
-        ${score.ties})`;
-    }    
+  document.querySelector('.js-score')
+    .innerHTML = `(WINS  ${score.wins}) (LOSSES ${score.losses}) (TIES 
+    ${score.ties})`;
+  document.querySelector('.js-result')
+    .innerHTML  = `${result}`;
+      
+  document.querySelector('.js-moves')
+    .innerHTML = `You |${player_move}| - |${pc_chose}| Computer`;
+  }    
+
+ 
+ 
+
 function cp_choice(){
     const choice = Math.random();
-    let result;
-    let pc_chose = '';
+
 
     if (choice <= 1 / 3){ 
         pc_chose = 'rock';       
@@ -39,6 +52,8 @@ function cp_choice(){
     }
 
 function game(player_choice){
+
+    player_move = player_choice;
 
     let pc_choice = cp_choice();
 
@@ -75,6 +90,5 @@ function game(player_choice){
     localStorage.setItem("score",JSON.stringify(score));
     
     update_score();
-
-
   }
+
