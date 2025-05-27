@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    body{
+      font-family: Arial;
+    }
+    .subscribe-button{
+      color: #ffffff;
+      border: none;
+      background-color: black;
+      border-radius: 50px;  
+      font-weight: 700;
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      cursor: pointer;
+      margin-bottom: 30px;
+    }
+    .subscribed-button{
+      background-color: rgb(215, 215, 215);
+      color: black;
+    }
+
+    /*---------------Amazon calc-----------------*/
+
+    .amzn-button{
+      background-color: green;
+      color: #ffffff;
+      font-weight: 700;
+      padding-top: 10px;
+      padding: 12px 15px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .order-price{
+      padding: 10px;
+      font-size: 15px;
+    }
+  
+  </style>
+
+</head>
+<body>
+  <p>Subscribe button</p>
+  <button class='JS-button subscribe-button' onclick="sub()"> Subscribe</button>
+
+  <!----------Amazon calc--------->
+  <p>Amazon Shipping Calculator</p>
+  <p>Orders under $40 = +$10 shipping.</p>
+  <p>Orders over $40 = Free shipping.</p>
+  <td>
+    <tr><input placeholder="Orders price" class="ht order-price" type="text" onkeydown="calcul_keydown(event)"></tr>
+    <tr><button class="amzn-button" onclick="shipping_calculator()">Calculate</button></tr>
+  </td>
+  <p class="price"></p>
+
+
+
+<script>
+const buttonElement = document.querySelector('.JS-button');
+
+function sub (){
+  if(buttonElement.innerText === 'Subscribe'){ //---to get only the text---
+    buttonElement.innerHTML = 'Subscribed';
+    buttonElement.classList.add('subscribed-button');
+  } else{
+    buttonElement.innerHTML = 'Subscribe';
+    buttonElement.classList.remove('subscribed-button');
+  } 
+}
+
+//---------------------Amazon calculator---------
+
+  function calcul_keydown (event){
+    if(event.key === 'Enter'){
+      shipping_calculator();
+    }
+
+  }
+
+function shipping_calculator(){
+  let price = Number(document.querySelector('.ht').value) ;
+
+
+  
+  if(price < 40){
+    price += 10;
+  }
+
+  document.querySelector('.price').innerHTML = `$${price}`;
+
+}
+
+  
+</script>  
+</body>
+
+</html>
