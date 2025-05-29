@@ -25,12 +25,11 @@ function update_score(){
     .innerHTML = `(WINS  ${score.wins}) (LOSSES ${score.losses}) (TIES 
     ${score.ties})`;
   document.querySelector('.js-result')
-    .innerHTML  = `${result}`;
-      
+    .innerHTML  = `${result}`;      
+
+  
  /* document.querySelector('.js-moves')
     .innerHTML = `You |${player_move}| - |${pc_chose}| Computer`;*/
-  
-
   choice_icon();
   }    
 
@@ -100,9 +99,20 @@ function game(player_choice){
 
     if(result === 'you lose !'){
         score.losses += 1;
+        document.querySelector('.result-text').classList.add('result-lose');
+        document.querySelector('.result-text').classList.remove('result-win');
+        document.querySelector('.result-text').classList.remove('result-tie');
     } else if(result === 'you win !'){
         score.wins += 1;
-    } else score.ties += 1;
+        document.querySelector('.result-text').classList.add('result-win');
+        document.querySelector('.result-text').classList.remove('result-lose');
+        document.querySelector('.result-text').classList.remove('result-tie');
+    } else {
+        score.ties += 1;
+        document.querySelector('.result-text').classList.add('result-tie');
+        document.querySelector('.result-text').classList.remove('result-win');
+        document.querySelector('.result-text').classList.remove('result-lose');
+    }
 
     localStorage.setItem("score",JSON.stringify(score));
     
