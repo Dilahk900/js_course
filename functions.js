@@ -27,12 +27,29 @@ function update_score(){
   document.querySelector('.js-result')
     .innerHTML  = `${result}`;
       
-  document.querySelector('.js-moves')
-    .innerHTML = `You |${player_move}| - |${pc_chose}| Computer`;
+ /* document.querySelector('.js-moves')
+    .innerHTML = `You |${player_move}| - |${pc_chose}| Computer`;*/
+  
+
+  choice_icon();
   }    
 
  
- 
+ function choice_icon(){
+    res_pc = document.querySelector('.pc-move-icon');
+    res_ply = document.querySelector('.ply-move-icon');
+    if(pc_chose === 'rock'){
+      res_pc.src = `img/rock.png`;
+    }else if(pc_chose === 'paper'){
+      res_pc.src = `img/paper.png`;
+    }else res_pc.src = `img/scissors.png`;
+
+    if(player_move === 'rock'){
+      res_ply.src = `img/rock.png`;
+    }else if(player_move === 'paper'){
+      res_ply.src = `img/paper.png`;
+    }else res_ply.src = `img/scissors.png`;
+ }
 
 function cp_choice(){
     const choice = Math.random();

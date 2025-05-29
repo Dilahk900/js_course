@@ -8,12 +8,12 @@
 </head>
 <body>
   <H1>Rock Paper Scissors</H1>
-  <button onclick="game('rock')">Rock</button>
-  <button onclick="game('paper')">Paper</button>
-  <button onclick="game('scissors')">Scissors</button>
+  <button onclick="game('rock')" class="move-button"><img src="img/rock.png" class="move-icon"></button>
+  <button onclick="game('paper')" class="move-button"><img src="img/paper.png" class="move-icon"></button>
+  <button onclick="game('scissors')" class="move-button"><img src="img/scissors.png" class="move-icon"></button>
   
   <p class="js-result"></p>
-  <p class="js-moves"></p>
+  <p><span>You</span><img class="ply-move-icon move-icon-ply-pc" src=""> | <img class="pc-move-icon move-icon-ply-pc" src=""><span>Computer</span></p>
   <p class="js-score"></p>
   
   <button onclick="reset()">Reset</button>
