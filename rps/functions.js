@@ -7,8 +7,8 @@ let score = JSON.parse(localStorage.getItem("score")) || {
 };
 
 let result = '';
-let pc_chose = '';
-let player_move = '';
+let pc_chose = 'rock';
+let player_move = 'rock';
 
 update_score();
   
@@ -35,7 +35,10 @@ function update_score(){
 
  
  function choice_icon(){
-    res_pc = document.querySelector('.pc-move-icon');
+    document.querySelector('.js-result-icon')
+      .innerHTML = `You <img src="img/${player_move}.png" class="move-icon-ply-pc"> VS <img src="img/${pc_chose}.png" class="move-icon-ply-pc"> Computer`;
+  
+   /* res_pc = document.querySelector('.pc-move-icon');
     res_ply = document.querySelector('.ply-move-icon');
     if(pc_chose === 'rock'){
       res_pc.src = `img/rock.png`;
@@ -47,7 +50,7 @@ function update_score(){
       res_ply.src = `img/rock.png`;
     }else if(player_move === 'paper'){
       res_ply.src = `img/paper.png`;
-    }else res_ply.src = `img/scissors.png`;
+    }else res_ply.src = `img/scissors.png`;*/
  }
 
 function cp_choice(){
