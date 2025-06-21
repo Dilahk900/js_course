@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href = "styles.css" rel="stylesheet">
 </head>
 <body>
 
-    <p>Todo List</p>
-    <p>
-    <input class="new-task" type="text" placeholder="Todo name">
-    <input type="button" name="Add" value="Add" onclick="add_task()">
-    </p>
+    <h1>Todo List</h1>
+    <div class="newtask-bloc">
+        <input class="js-new-task new-task" type="text" placeholder="Todo name">
+        <input type="date" class="js-date date">
+        <input class="addbtn" type="button" name="Add" value="Add" onclick="add_todo()">
+        
+
+    </div>
+
+    <div class="js-tasks list"></div>
 
 
     
